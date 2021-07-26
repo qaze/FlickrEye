@@ -21,7 +21,7 @@ final class PhotoDownloader: PhotoDownloaderProtocol {
 	}
 	
 	func download(url: URL) -> AnyPublisher<Data?, Error> {
-		if let data = cache?.data(for: "\(url.hashValue)") { 
+		if let data = cache?.data(for: url.fileName) { 
 			return Just(data)
 				.setFailureType(to: Error.self)
 				.eraseToAnyPublisher()
@@ -32,7 +32,7 @@ final class PhotoDownloader: PhotoDownloaderProtocol {
 			.subscribe(on: DispatchQueue.global())
 			.tryCompactMap { [weak self] data in
 				guard let data = data else { return nil }
-				self?.cache?.save(data: data, for: "\(url.hashValue)")
+				self?.cache?.save(data: data, for: url.fileName)
 				return data
 			}
 			.eraseToAnyPublisher()

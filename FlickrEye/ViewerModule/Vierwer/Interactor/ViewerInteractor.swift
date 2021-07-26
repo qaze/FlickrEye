@@ -24,7 +24,7 @@ final class ViewerInteractor: ViewerInteractorProtocol {
 			URLQueryItem(name: "extras", value: "media"),
 			URLQueryItem(name: "extras", value: "url_sq"),
 			URLQueryItem(name: "extras", value: "url_m"),
-			URLQueryItem(name: "per_page", value: "20"),
+			URLQueryItem(name: "per_page", value: "30"),
 			URLQueryItem(name: "page", value: "\(page)")
 		]
 	}
