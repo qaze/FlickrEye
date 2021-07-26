@@ -27,6 +27,8 @@
 		A413E2F426AC996C0071ADCA /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2F326AC996C0071ADCA /* PhotoModel.swift */; };
 		A413E2F926AC9B8C0071ADCA /* ViewerViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2F826AC9B8C0071ADCA /* ViewerViewModelProtocol.swift */; };
 		A413E2FE26AC9CA80071ADCA /* ViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2FD26AC9CA80071ADCA /* ViewerViewController.swift */; };
+		A49ACEA726AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49ACEA626AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift */; };
+		A49ACEAA26AE0E2F00FF3036 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49ACEA926AE0E2F00FF3036 /* Cache.swift */; };
 		A49F92C426AD975400779AE6 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F92C326AD975400779AE6 /* PhotoCell.swift */; };
 		A4E778E426ACBD920071D74B /* PhotoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E778E326ACBD920071D74B /* PhotoDownloader.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		A413E2F326AC996C0071ADCA /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		A413E2F826AC9B8C0071ADCA /* ViewerViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewModelProtocol.swift; sourceTree = "<group>"; };
 		A413E2FD26AC9CA80071ADCA /* ViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewController.swift; sourceTree = "<group>"; };
+		A49ACEA626AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloaderProtocol.swift; sourceTree = "<group>"; };
+		A49ACEA926AE0E2F00FF3036 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A49F92C326AD975400779AE6 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		A4E778E326ACBD920071D74B /* PhotoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +165,7 @@
 		A413E2A726AC88780071ADCA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A49ACEA826AE0E1900FF3036 /* Cache */,
 				A413E2A826AC88800071ADCA /* ApiClient */,
 			);
 			path = Networking;
@@ -242,10 +247,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		A49ACEA826AE0E1900FF3036 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A49ACEA926AE0E2F00FF3036 /* Cache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		A4E778E226ACBCFF0071D74B /* PhotoDownloader */ = {
 			isa = PBXGroup;
 			children = (
 				A4E778E326ACBD920071D74B /* PhotoDownloader.swift */,
+				A49ACEA626AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift */,
 			);
 			path = PhotoDownloader;
 			sourceTree = "<group>";
@@ -381,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A413E2C826AC95160071ADCA /* Coordinator.swift in Sources */,
+				A49ACEA726AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift in Sources */,
 				A413E2B826AC91B50071ADCA /* URLSessionClient.swift in Sources */,
 				A413E27526AC88310071ADCA /* AppDelegate.swift in Sources */,
 				A413E2F426AC996C0071ADCA /* PhotoModel.swift in Sources */,
@@ -390,6 +405,7 @@
 				A413E2F926AC9B8C0071ADCA /* ViewerViewModelProtocol.swift in Sources */,
 				A413E2B326AC91900071ADCA /* Request.swift in Sources */,
 				A413E2D026AC95260071ADCA /* ViewerCoordinator.swift in Sources */,
+				A49ACEAA26AE0E2F00FF3036 /* Cache.swift in Sources */,
 				A4E778E426ACBD920071D74B /* PhotoDownloader.swift in Sources */,
 				A413E2EA26AC96380071ADCA /* ViewerInteractor.swift in Sources */,
 				A413E27726AC88310071ADCA /* SceneDelegate.swift in Sources */,

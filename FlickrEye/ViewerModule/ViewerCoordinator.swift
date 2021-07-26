@@ -10,19 +10,22 @@ import UIKit
 
 class ViewerCoordinator: Coordinator {
 	private let apiClient: ApiClient
+	private let cache: Cache?
 	private weak var navigationController: UINavigationController?
 	
 	init(
 		navigationController: UINavigationController,
-		apiClient: ApiClient
+		apiClient: ApiClient,
+		cache: Cache?
 	) {
 		self.navigationController = navigationController
 		self.apiClient = apiClient
+		self.cache = cache
 	}
 	
 	func start() {
 		let interactor = ViewerInteractor(client: apiClient)
-		let downloader = PhotoDownloader(client: apiClient)
+		let downloader = PhotoDownloader(client: apiClient, cache: cache)
 		let viewModel = ViewerViewModel(
 			interactor: interactor, 
 			downloader: downloader,

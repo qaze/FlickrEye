@@ -10,6 +10,7 @@ import UIKit
 
 class ViewerModule {
 	private let networkClient: ApiClient
+	private let cache: Cache?
 	private let urlSession = URLSession(configuration: .default)
 	private let coordinator: Coordinator
 	
@@ -32,9 +33,12 @@ class ViewerModule {
 			baseURL: baseURL
 		)
 		
+		cache = try? FileCache()
+		
 		coordinator = ViewerCoordinator(
 			navigationController: navigationController, 
-			apiClient: networkClient
+			apiClient: networkClient,
+			cache: cache
 		)
 	}
 	

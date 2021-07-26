@@ -56,9 +56,6 @@ class URLSessionClient<NetworkDecoder: TopLevelDecoder>: ApiClient where Network
 					throw URLError(.badServerResponse)
 				}
 				
-				print(element)
-				print(String(data: element.data, encoding: .utf8) ?? "Empty response")
-				
 				return element.data
 			}
 			.decode(type: ResultModel.self, decoder: decoder)
@@ -73,9 +70,6 @@ class URLSessionClient<NetworkDecoder: TopLevelDecoder>: ApiClient where Network
 					  httpResponse.statusCode == 200 else {
 					throw URLError(.badServerResponse)
 				}
-				
-				print(element)
-				print(String(data: element.data, encoding: .utf8) ?? "Empty response")
 				
 				return element.data
 			}
