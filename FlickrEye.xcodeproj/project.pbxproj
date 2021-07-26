@@ -25,11 +25,12 @@
 		A413E2EA26AC96380071ADCA /* ViewerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2E926AC96380071ADCA /* ViewerInteractor.swift */; };
 		A413E2EF26AC98500071ADCA /* ViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2EE26AC98500071ADCA /* ViewerViewModel.swift */; };
 		A413E2F426AC996C0071ADCA /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2F326AC996C0071ADCA /* PhotoModel.swift */; };
-		A413E2F926AC9B8C0071ADCA /* ViewerViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2F826AC9B8C0071ADCA /* ViewerViewModelProtocol.swift */; };
 		A413E2FE26AC9CA80071ADCA /* ViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A413E2FD26AC9CA80071ADCA /* ViewerViewController.swift */; };
 		A49ACEA726AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49ACEA626AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift */; };
 		A49ACEAA26AE0E2F00FF3036 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49ACEA926AE0E2F00FF3036 /* Cache.swift */; };
 		A49F92C426AD975400779AE6 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F92C326AD975400779AE6 /* PhotoCell.swift */; };
+		A4A6775826AF3BB60010199D /* FileCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6775726AF3BB60010199D /* FileCache.swift */; };
+		A4A6775B26AF3D090010199D /* URL+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6775A26AF3D090010199D /* URL+Utils.swift */; };
 		A4E778E426ACBD920071D74B /* PhotoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E778E326ACBD920071D74B /* PhotoDownloader.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,11 +76,12 @@
 		A413E2E926AC96380071ADCA /* ViewerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerInteractor.swift; sourceTree = "<group>"; };
 		A413E2EE26AC98500071ADCA /* ViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewModel.swift; sourceTree = "<group>"; };
 		A413E2F326AC996C0071ADCA /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
-		A413E2F826AC9B8C0071ADCA /* ViewerViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewModelProtocol.swift; sourceTree = "<group>"; };
 		A413E2FD26AC9CA80071ADCA /* ViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewerViewController.swift; sourceTree = "<group>"; };
 		A49ACEA626AE0DFC00FF3036 /* PhotoDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloaderProtocol.swift; sourceTree = "<group>"; };
 		A49ACEA926AE0E2F00FF3036 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A49F92C326AD975400779AE6 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		A4A6775726AF3BB60010199D /* FileCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCache.swift; sourceTree = "<group>"; };
+		A4A6775A26AF3D090010199D /* URL+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Utils.swift"; sourceTree = "<group>"; };
 		A4E778E326ACBD920071D74B /* PhotoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +133,10 @@
 		A413E27326AC88310071ADCA /* FlickrEye */ = {
 			isa = PBXGroup;
 			children = (
+				A4A6775926AF3CF90010199D /* Utils */,
 				A413E2C626AC950D0071ADCA /* Routing */,
 				A413E2BC26AC92000071ADCA /* ViewerModule */,
+				A49ACEA826AE0E1900FF3036 /* Cache */,
 				A413E2A726AC88780071ADCA /* Networking */,
 				A413E27426AC88310071ADCA /* AppDelegate.swift */,
 				A413E27626AC88310071ADCA /* SceneDelegate.swift */,
@@ -165,7 +169,6 @@
 		A413E2A726AC88780071ADCA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A49ACEA826AE0E1900FF3036 /* Cache */,
 				A413E2A826AC88800071ADCA /* ApiClient */,
 			);
 			path = Networking;
@@ -215,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				A413E2EE26AC98500071ADCA /* ViewerViewModel.swift */,
-				A413E2F826AC9B8C0071ADCA /* ViewerViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,8 +253,17 @@
 			isa = PBXGroup;
 			children = (
 				A49ACEA926AE0E2F00FF3036 /* Cache.swift */,
+				A4A6775726AF3BB60010199D /* FileCache.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		A4A6775926AF3CF90010199D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A4A6775A26AF3D090010199D /* URL+Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A4E778E226ACBCFF0071D74B /* PhotoDownloader */ = {
@@ -402,8 +413,8 @@
 				A413E2EF26AC98500071ADCA /* ViewerViewModel.swift in Sources */,
 				A49F92C426AD975400779AE6 /* PhotoCell.swift in Sources */,
 				A413E2FE26AC9CA80071ADCA /* ViewerViewController.swift in Sources */,
-				A413E2F926AC9B8C0071ADCA /* ViewerViewModelProtocol.swift in Sources */,
 				A413E2B326AC91900071ADCA /* Request.swift in Sources */,
+				A4A6775B26AF3D090010199D /* URL+Utils.swift in Sources */,
 				A413E2D026AC95260071ADCA /* ViewerCoordinator.swift in Sources */,
 				A49ACEAA26AE0E2F00FF3036 /* Cache.swift in Sources */,
 				A4E778E426ACBD920071D74B /* PhotoDownloader.swift in Sources */,
@@ -412,6 +423,7 @@
 				A413E2BE26AC92260071ADCA /* ViewerModule.swift in Sources */,
 				A413E2D926AC95E50071ADCA /* ViewerInteractorProtocol.swift in Sources */,
 				A413E2AB26AC88B30071ADCA /* ApiClient.swift in Sources */,
+				A4A6775826AF3BB60010199D /* FileCache.swift in Sources */,
 				A413E2E226AC961D0071ADCA /* PhotoNetworkModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

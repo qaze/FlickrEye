@@ -33,7 +33,6 @@ final class ViewerViewController: UIViewController {
 	init(viewModel: ViewerViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
-		setupAppearance()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -42,6 +41,7 @@ final class ViewerViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupAppearance()
 		bindToViewModel()
 		viewModel.onViewReady()
 	}
@@ -64,7 +64,7 @@ fileprivate extension ViewerViewController {
 	
 	func setupAppearance() {
 		view.backgroundColor = .white
-		navigationController?.title = "Flickr Eye Viewer"
+		navigationItem.title = "Flickr Eye Viewer"
 		
 		setupSearchBar()
 		setupCollectionView()

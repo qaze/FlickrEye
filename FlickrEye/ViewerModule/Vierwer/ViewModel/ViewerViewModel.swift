@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ViewerViewModel: ViewerViewModelProtocol {
+final class ViewerViewModel {
 	enum Constants {
 		static let columnsCount = 3
 	}
