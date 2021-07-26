@@ -8,18 +8,33 @@
 import Foundation
 import Combine
 
-protocol PhotoDownloaderProtocol {
-	func download(url: URL) -> AnyPublisher<Data?, Error>
-}
-
 final class PhotoDownloader: PhotoDownloaderProtocol {
 	private let client: ApiClient
+	private let cache: Cache?
 	
-	init(client: ApiClient) {
+	init(
+		client: ApiClient,
+		cache: Cache?
+	) {
 		self.client = client
+		self.cache = cache
 	}
 	
 	func download(url: URL) -> AnyPublisher<Data?, Error> {
-		client.download(url: url)
+		if let data = cache?.data(for: "\(url.hashValue)") { 
+			return Just(data)
+				.setFailureType(to: Error.self)
+				.eraseToAnyPublisher()
+		}
+		
+		return client
+			.download(url: url)
+			.subscribe(on: DispatchQueue.global())
+			.tryCompactMap { [weak self] data in
+				guard let data = data else { return nil }
+				self?.cache?.save(data: data, for: "\(url.hashValue)")
+				return data
+			}
+			.eraseToAnyPublisher()
 	}
 }

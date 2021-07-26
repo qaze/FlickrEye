@@ -53,7 +53,6 @@ final class ViewerViewModel: ViewerViewModelProtocol {
 	}
 	
 	func photoWillBeShown(at index: Int) {
-		print(index)
 		if index > photos.count - Constants.columnsCount * 2 {
 			loadNextPage()
 		}
